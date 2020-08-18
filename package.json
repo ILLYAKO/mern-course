@@ -1,0 +1,33 @@
+{
+  "name": "vm_mern-course",
+  "version": "1.0.0",
+  "description": "Mern stack",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "server": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ILLYAKO/mern-course.git"
+  },
+  "keywords": [
+    "mern",
+    "react",
+    "nodejs"
+  ],
+  "author": "Illya <Ilhaifa@yandex.ru>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ILLYAKO/mern-course/issues"
+  },
+  "homepage": "https://github.com/ILLYAKO/mern-course#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.10.0"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.4"
+  }
+}
