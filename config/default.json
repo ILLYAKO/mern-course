@@ -1,4 +1,5 @@
 {
   "port": 5000,
+  "jwtSecret":"illya youtube mern",
   "mongoUri": "mongodb+srv://Illya:*12345*@cluster0.p6h6l.azure.mongodb.net/app?retryWrites=true&w=majority"
 }
