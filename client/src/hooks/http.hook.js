@@ -6,6 +6,10 @@ export const useHttp = () => {
     async (url, method = "GET", body = null, headers = {}) => {
       setLoading(true);
       try {
+        if (body) {
+          body = JSON.stringify(body);
+          headers["Content-Type"] = "application/json";
+        }
         const response = await fetch(url, { method, body, headers });
         const data = await response.json();
         if (!response.ok) {
@@ -14,6 +18,7 @@ export const useHttp = () => {
         setLoading(false);
         return data;
       } catch (e) {
+        console.log("Catch", e.message);
         setLoading(false);
         setError(e.message);
         throw e;
@@ -21,6 +26,6 @@ export const useHttp = () => {
     },
     []
   );
-  const clearError = () => setError(null);
+  const clearError = useCallback(() => setError(null), []);
   return { loading, request, error, clearError };
 };

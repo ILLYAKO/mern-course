@@ -17,6 +17,8 @@ router.post(
   ],
   async (req, res) => {
     try {
+      //  console.log("Body:", req.body);
+
       const errors = validationResult(req);
 
       if (!errors.isEmpty) {
@@ -25,7 +27,9 @@ router.post(
           message: "wrong registration data",
         });
       }
+
       const { email, password } = req.body;
+
       const candidate = await User.findOne({ email });
       if (candidate) {
         res.status(400).json({ message: "User exist." });
@@ -71,9 +75,9 @@ router.post(
         return res.status(400).json({ message: "Wrong password, try again!" });
       }
 
-      const token = jwt.sign({ uderId: user.id }, config.get("jwtSecret"),
-       {expiresIn: "1h"}
-      );
+      const token = jwt.sign({ uderId: user.id }, config.get("jwtSecret"), {
+        expiresIn: "1h",
+      });
 
       res.json({ token, userId: user.id });
 
